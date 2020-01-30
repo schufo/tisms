@@ -1,0 +1,12 @@
+#conda create -n tisms_env python=3.6
+#conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=9.0 -c pytorch
+#
+sacred==0.7.5
+pymongo==3.8.0
+mir_eval==0.5
+pystoi==0.2.2
+pypesq==1.2.4
+timit_utils==0.9.0
+tensorboardX==1.7
+librosa==0.6.3
+musdb==0.2.3
