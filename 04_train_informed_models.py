@@ -40,7 +40,7 @@ def configuration():
     hop_len = 256
     window = 'hamming'
 
-    loss_function = 'L1'  # 'L1' or 'L1WithAlphaRegularization'
+    loss_function = 'L1'
     batch_size_train = 32
     batch_size_val = 40
     epochs = 3000

@@ -85,7 +85,7 @@ def make_experiment_dir(models_directory, tag):
 
 
 @ex.capture
-def make_data_sets(data_set, snr_train, snr_val, fft_len, hop_len, window, batch_size_train, batch_size_val, align_phonemes):
+def make_data_sets(data_set, snr_train, snr_val, fft_len, hop_len, window, batch_size_train, batch_size_val):
 
     if data_set == 'timit_musdb':
         import data.timit_musdb_train as train_set

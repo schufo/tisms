@@ -86,19 +86,18 @@ target/
 .mypy_cache/
 
 # files I do not want to put to GitHub
-project_notes.txt
-explicit_packages.txt
-job.sh
 job_eval.sh
 job_eval_align.sh
 job_text.sh
 job_wst.sh
+job.sh
 my_pc_job.sh
 run_mfa.sh
 
 data/*.pickle
 tensorboard/*
 !tensorboard/.gitignore
-trained_models/*
+
+cluster_logs/*
 
 

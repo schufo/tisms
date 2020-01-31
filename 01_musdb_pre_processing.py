@@ -1,8 +1,3 @@
-"""
-This data pre-processing file can either be run as a script (the user should adapt the parameters at the bottom) or the
-function musdb_pre_processing can be imported and used inside another script to reproduce the pre-processing.
-"""
-
 import random
 import os
 import pickle
@@ -24,25 +19,6 @@ def musdb_pre_processing(path_to_musdb, path_to_save_data, target_sr,
     This function splits all MUSDB tracks in frames of a given length, downsamples them to a given sampling rate,
     converts them to mono and saves each frame as .npy-file. It randomly splits the training partition into a training
     (80 tracks) and a validation (20 tracks) set.
-
-    Parameters
-    ----------
-    path_to_musdb : string
-        path to original MUSDB18 database
-    path_to_save_train_set : string
-        path to directory where the frames of the training set should be stored
-    path_to_save_val_set : string
-        path to directory where the frames of the validation set should be stored
-    path_to_save_test_set : string
-        path to directory where the frames of the test set should be stored
-    target_sr : int
-        desired sampling rate
-    frame_length : int
-        Desired number of samples per frame
-
-    Returns
-    -------
-
     """
 
     path_to_save_train_set = os.path.join(path_to_save_data, 'train')
@@ -154,7 +130,7 @@ def musdb_pre_processing(path_to_musdb, path_to_save_data, target_sr,
 if __name__ == '__main__':
 
     path_to_musdb = '../Datasets/MUSDB18'
-    path_to_save_data = '../Datasets/MUSDB_accompaniments2'
+    path_to_save_data = '../Datasets/MUSDB_accompaniments'
 
     target_sr = 16000
     frame_length = 131584

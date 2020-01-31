@@ -22,22 +22,8 @@ torch.cuda.manual_seed(0)
 def configuration():
 
     tag = 'test'
-    seed = 1
     model_state_dict_name = 'model_best_val_cost.pt'
 
-    side_info_type = 'phonemes'  # 'phonemes' or 'ones'
-    data_set = 'timit_musdb'
-
-    text_feature_size = 63
-    vocabulary_size = 63
-    phoneme_embedding_size = 257
-    mix_encoder_layers = 2
-    side_info_encoder_layers = 2
-    target_decoder_layers = 2
-    align_phonemes = False
-    side_info_encoder_bidirectional = True
-
-    snr_train = 'random'
     eval_dir = 'evaluation'
 
     ex.add_config('configs/{}/config.json'.format(tag))
@@ -91,9 +77,9 @@ def load_state_dict(models_directory, tag, model_state_dict_name):
 
 
 @ex.capture
-def config2main(tag, test_snr, fft_len, hop_len, window, text_feature_size, side_info_type, vocabulary_size):
+def config2main(tag, test_snr, fft_len, hop_len, window, text_feature_size, vocabulary_size):
 
-    return tag, test_snr, fft_len, hop_len, window, text_feature_size, side_info_type, vocabulary_size
+    return tag, test_snr, fft_len, hop_len, window, text_feature_size, vocabulary_size
 
 
 @ex.capture
@@ -107,7 +93,7 @@ def make_eval_dir(eval_dir, tag, test_snr):
 @ex.automain
 def eval_model():
 
-    tag, test_snr, fft_len, hop_len, window, text_feature_size, side_info_type, vocabulary_size = config2main()
+    tag, test_snr, fft_len, hop_len, window, text_feature_size, vocabulary_size = config2main()
 
     test_set = make_data_set()
 

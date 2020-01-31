@@ -34,27 +34,21 @@ def configuration():
     side_info_type = 'phonemes'  # 'phonemes' or 'ones'
     test_data_set = 'timit_musdb'
 
-    text_feature_size = 63
-    vocabulary_size = 63
-    mix_encoder_layers = 2
-    side_info_encoder_layers = 2
-    target_decoder_layers = 2
-    perfect_alphas = False
     side_info_encoder_bidirectional = True
 
+    perfect_alphas = False
+    vocabulary_size = None
     eval_dir = 'evaluation'
 
     ex.add_config('configs/{}/config.json'.format(tag))
 
     test_snr = -5
-    train_snr = None
-    snr = None
 
 
 @ex.capture
 def make_data_set(test_data_set, test_snr, fft_len, hop_len, window, perfect_alphas):
 
-    if test_data_set == 'timit_mudb':
+    if test_data_set == 'timit_musdb':
         import data.timit_musdb_test as test_set
 
         if perfect_alphas:
@@ -208,8 +202,10 @@ def eval_model():
             true_speech_time_domain.flatten(), predicted_speech_time_domain.flatten(), window_size=16000,
             hop_size=16000)
 
-        pes_speech_all_snippets.append(np.mean(pes))
-        eps_speech_all_snippets.append(np.mean(eps))
+        if len(pes) != 0:
+            pes_speech_all_snippets.append(np.mean(pes))
+        if len(eps) != 0:
+            eps_speech_all_snippets.append(np.mean(eps))
 
         if sum(predicted_speech_time_domain) == 0:
             print("all-zero prediction:", i)
