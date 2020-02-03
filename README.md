@@ -10,7 +10,7 @@ Clone the repository to your machine:
 git clone https://github.com/schufo/tisms.git
 </pre>
 
-Make sure that your working directory is 'tisms/' for all steps described below.
+Make sure that your working directory is *tisms/* for all steps described below.
 
 ## Virtual Environment
 The project was done in a conda environment with python 3.6. You can create one with the following command:
@@ -36,11 +36,12 @@ pip install -r requirements.txt
 
 ## Data Preprocessing
 
-At the bottom of the script 01\_musdb\_pre\_processing.py enter the correct links to your MUSDB dataset and to the directory where you want to save the preprocessed MUDSB data.
+At the bottom of the script *01\_musdb\_pre\_processing.py* enter the correct links to your MUSDB dataset and to the directory where you want to save the preprocessed MUDSB data. Then, run the following two commands:
+<pre>
+python 01_musdb_pre_processing.py
 
-Run 01\_musdb\_pre\_processing.py
-
-Run 02\_make\_timit\_phoneme\_vocabulary.py
+python 02_make_timit_phoneme_vocabulary.py
+</pre>
 
 In the folder 'data' you find three python files containing the data set classes for training, validation, and testing. Enter the correct path to your TIMIT dataset and to the preprocessed MUSDB data at the top of all three files.
 
