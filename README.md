@@ -90,5 +90,5 @@ python 08_eval_separation.py with 'tag="BL"'
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowsa-Curie grant agreement No. 765068.
 
 ## Copyright notice
-Copyright 2019 Kilian Schulze-Forster of Télécom Paris, Institut Polytechnique de Paris.
+Copyright 2020 Kilian Schulze-Forster of Télécom Paris, Institut Polytechnique de Paris.
 All rights reserved.
