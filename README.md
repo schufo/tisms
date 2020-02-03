@@ -2,7 +2,7 @@
 
 Here you find the code to reproduce the experiments of the paper "Joint phoneme alignment and text-informed speech separation on highly corrupted speech" by Kilian Schulze-Forster, Clement S. J. Doire, Gaël Richard, Roland Badeau. Accepted at *IEEE International Conference on Audio, Speech, and Signal Processing, 2020.*
 
-The paper and audio examples are availabe [here](https://schufo.github.io/publications/2020-ICASSP)
+The paper and audio examples are available [here](https://schufo.github.io/publications/2020-ICASSP)
 
 ## Download
 Clone the repository to your machine:
@@ -66,7 +66,7 @@ To train the model with Optimal Attention (OA) weights run:
 python 05_train_OA.py
 </pre>
 
-For this project I tried the experiment tracking package "sacred". Since scripts we want to run for testing need to access configuration files by their tag we assigned during training we now need to run:
+For this project I tried the experiment tracking package "sacred". Since scripts we want to run for testing need to access configuration files by their tag name we assigned during training, we now need to run the following script to copy the config files to a folder named by their tag:
 <pre>
 python 06_copy_configs.py
 </pre>
@@ -74,12 +74,13 @@ python 06_copy_configs.py
 
 ## Evaluation
 
-eval alignment: python 07_eval_alignment.py with 'test_snr=100' 'tag="V1"'
+To evaluate the alignment provided by V1, V2, V3 run the command below. To evaluate on clean speech set the test SNR to 100, for corrupted speech set it to -5. Set the tag parameter to the model you want to evaluate.
+<pre>
+python 07_eval_alignment.py with 'test_snr=100' 'tag="V1"'
+</pre>
 
-'test_snr=100' means clean speech, other wise run with 'test_snr=-5'
 
-eval separation python 08_eval_separation.py with 'tag="BL"'
-
-run with all tags
-
-what is saved after eval? script to show results?
+To evaluate the separation quality in terms of SDR, SAR, SIR, STOI, PESQ, as well as [PES and EPS](https://github.com/schufo/wiass) run the following script with the respective tags:
+<pre>
+python 08_eval_separation.py with 'tag="BL"'
+</pre>
