@@ -86,6 +86,8 @@ To evaluate the separation quality in terms of SDR, SAR, SIR, STOI, PESQ, as wel
 python 08_eval_separation.py with 'tag="BL"'
 </pre>
 
+The evaluation scripts save json-files with evaluation summaries for a quick preview in the *evaluation* folder. For more advanced analysis of the results, numpy-files with all scores for every test example and metric are also saved in the *evaluation* folder.
+
 ## Acknowledgment
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the Marie Skłodowsa-Curie grant agreement No. 765068.
 
